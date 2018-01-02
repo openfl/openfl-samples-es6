@@ -15,7 +15,7 @@ git clone https://github.com/openfl/openfl-samples-es6
 ### Choose a sample
 
 ```bash
-cd openfl-samples-es6/helloworld
+cd openfl-samples-es6/features/display/DisplayingABitmap
 ```
 
 ### Install and start
