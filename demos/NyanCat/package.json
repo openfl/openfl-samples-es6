@@ -1,0 +1,26 @@
+{
+  "name": "org.openfl.samples.nyancat-es6",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "openfl": "*",
+    "uglifyjs-webpack-plugin": "^1.1.4",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.10.1",
+    "webpack-merge": "^4.1.1"
+  },
+  "scripts": {
+    "build": "npm run build:prod",
+    "build:dev": "npm run process-swf && webpack --config webpack.dev.js",
+    "build:prod": "npm run process-swf && webpack --config webpack.prod.js",
+    "process-swf": "openfljs process assets/library.swf dist/library.bundle",
+    "start": "npm run start:dev",
+    "start:dev": "npm run process-swf && webpack-dev-server --open --config webpack.dev.js",
+    "start:prod": "npm run process-swf && webpack-dev-server --open --config webpack.prod.js"
+  },
+  "dependencies": {}
+}
