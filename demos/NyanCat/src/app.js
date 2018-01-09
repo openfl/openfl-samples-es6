@@ -1,3 +1,4 @@
+"use strict";
 import Sprite from "openfl/display/Sprite";
 import Stage from "openfl/display/Stage";
 import AssetLibrary from "openfl/utils/AssetLibrary";

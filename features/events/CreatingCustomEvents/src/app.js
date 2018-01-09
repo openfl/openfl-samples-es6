@@ -2,7 +2,7 @@
 import Sprite from "openfl/display/Sprite";
 import Stage from "openfl/display/Stage";
 import Event from "openfl/events/Event";
-import CustomEvent from "./CustomEvent";
+import CustomEvent from "./customEvent";
 
 
 class App extends Sprite {
