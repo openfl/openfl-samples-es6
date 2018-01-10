@@ -2,6 +2,7 @@
 import Sprite from "openfl/display/Sprite";
 import Stage from "openfl/display/Stage";
 import AssetLibrary from "openfl/utils/AssetLibrary";
+import libraryPath from "./../assets/library.swf";
 
 
 class App extends Sprite {
@@ -11,7 +12,7 @@ class App extends Sprite {
 		
 		super ();
 		
-		AssetLibrary.loadFromFile ("library.bundle").onComplete ((library) => {
+		AssetLibrary.loadFromFile (libraryPath).onComplete ((library) => {
 			
 			var cat = library.getMovieClip ("NyanCatAnimation");
 			this.addChild (cat);
