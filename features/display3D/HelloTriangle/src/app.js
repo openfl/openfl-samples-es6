@@ -51,12 +51,12 @@ class App extends Sprite {
 		
 		var assembler = new AGALMiniAssembler ();
 		
-		var vertexShader = assembler.assemble ("vertex",
+		var vertexShader = assembler.assemble (Context3DProgramType.VERTEX,
 			"m44 op, va0, vc0\n" +
 			"mov v0, va1"
 		);
 		
-		var fragmentShader = assembler.assemble ("fragment",
+		var fragmentShader = assembler.assemble (Context3DProgramType.FRAGMENT,
 			"mov oc, v0"
 		);
 		

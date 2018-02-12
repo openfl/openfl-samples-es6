@@ -25,31 +25,29 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-package;
 
-
-import openfl.geom.Matrix3D;
-import openfl.geom.Vector3D;
-import openfl.Vector;
+import Matrix3D from "openfl/geom/Matrix3D";
+import Vector3D from "openfl/geom/Vector3D";
+import Vector from "openfl/Vector";
 
 
 class PerspectiveMatrix3D extends Matrix3D {
 	
 	
-	private var _x = new Vector3D ();
-	private var _y = new Vector3D ();
-	private var _z = new Vector3D ();
-	private var _w = new Vector3D ();
+	_x = new Vector3D ();
+	_y = new Vector3D ();
+	_z = new Vector3D ();
+	_w = new Vector3D ();
 	
 	
-	public function new (v:Vector<Float> = null) {
+	constructor (v = null) {
 		
 		super (v);
 		
 	}
 	
 	
-	public function lookAtLH (eye:Vector3D, at:Vector3D, up:Vector3D):Void {
+	lookAtLH (eye, at, up) {
 		
 		_z.copyFrom (at);
 		_z.subtract (eye);
@@ -57,12 +55,12 @@ class PerspectiveMatrix3D extends Matrix3D {
 		_z.w = 0.0;
 		
 		_x.copyFrom (up);
-		_crossProductTo (_x, _z);
+		this._crossProductTo (_x, _z);
 		_x.normalize ();
 		_x.w = 0.0;
 		
 		_y.copyFrom (_z);
-		_crossProductTo (_y, _x);
+		this._crossProductTo (_y, _x);
 		_y.w = 0.0;
 		
 		_w.x = _x.dotProduct (eye);
@@ -70,15 +68,15 @@ class PerspectiveMatrix3D extends Matrix3D {
 		_w.z = _z.dotProduct (eye);
 		_w.w = 1.0;
 		
-		copyRowFrom (0, _x);
-		copyRowFrom (1, _y);
-		copyRowFrom (2, _z);
-		copyRowFrom (3, _w);
+		this.copyRowFrom (0, _x);
+		this.copyRowFrom (1, _y);
+		this.copyRowFrom (2, _z);
+		this.copyRowFrom (3, _w);
 		
 	}
 	
 	
-	public function lookAtRH (eye:Vector3D, at:Vector3D, up:Vector3D):Void {
+	lookAtRH (eye, at, up) {
 		
 		_z.copyFrom (eye);
 		_z.subtract (at);
@@ -86,12 +84,12 @@ class PerspectiveMatrix3D extends Matrix3D {
 		_z.w = 0.0;
 		
 		_x.copyFrom (up);
-		_crossProductTo (_x, _z);
+		this._crossProductTo (_x, _z);
 		_x.normalize ();
 		_x.w = 0.0;
 		
 		_y.copyFrom (_z);
-		_crossProductTo (_y, _x);
+		this._crossProductTo (_y, _x);
 		_y.w = 0.0;
 		
 		_w.x = _x.dotProduct (eye);
@@ -99,15 +97,15 @@ class PerspectiveMatrix3D extends Matrix3D {
 		_w.z = _z.dotProduct (eye);
 		_w.w = 1.0;
 		
-		copyRowFrom (0, _x);
-		copyRowFrom (1, _y);
-		copyRowFrom (2, _z);
-		copyRowFrom (3, _w);
+		this.copyRowFrom (0, _x);
+		this.copyRowFrom (1, _y);
+		this.copyRowFrom (2, _z);
+		this.copyRowFrom (3, _w);
 		
 	}
 	
 	
-	public function orthoLH (width:Float, height:Float, zNear:Float, zFar:Float):Void {
+	orthoLH (width, height, zNear, zFar) {
 		
 		this.copyRawDataFrom (Vector.ofArray ([
 			2.0 / width, 0.0, 0.0, 0.0,
@@ -119,7 +117,7 @@ class PerspectiveMatrix3D extends Matrix3D {
 	}
 	
 	
-	public function orthoOffCenterLH (left:Float, right:Float, bottom:Float, top:Float, zNear:Float, zFar:Float):Void {
+	orthoOffCenterLH (left, right, bottom, top, zNear, zFar) {
 		
 		this.copyRawDataFrom (Vector.ofArray ([
 			2.0 / (right - left), 0.0, 0.0, 0.0,
@@ -130,7 +128,7 @@ class PerspectiveMatrix3D extends Matrix3D {
 		
 	}
 
-	public function orthoOffCenterRH (left:Float, right:Float, bottom:Float, top:Float, zNear:Float, zFar:Float):Void {
+	orthoOffCenterRH (left, right, bottom, top, zNear, zFar) {
 		
 		this.copyRawDataFrom (Vector.ofArray ([
 			2.0 / (right - left), 0.0, 0.0, 0.0,
@@ -142,7 +140,7 @@ class PerspectiveMatrix3D extends Matrix3D {
 	}
 	
 	
-	public function orthoRH (width:Float, height:Float, zNear:Float, zFar:Float):Void {
+	orthoRH (width, height, zNear, zFar) {
 		
 		this.copyRawDataFrom (Vector.ofArray ([
 			2.0 / width, 0.0, 0.0, 0.0,
@@ -154,7 +152,7 @@ class PerspectiveMatrix3D extends Matrix3D {
 	}
 	
 	
-	public function perspectiveFieldOfViewLH (fieldOfViewY:Float, aspectRatio:Float, zNear:Float, zFar:Float):Void {
+	perspectiveFieldOfViewLH (fieldOfViewY, aspectRatio, zNear, zFar) {
 		
 		var yScale = 1.0 / Math.tan (fieldOfViewY / 2.0);
 		var xScale = yScale / aspectRatio;
@@ -169,7 +167,7 @@ class PerspectiveMatrix3D extends Matrix3D {
 	}
 	
 	
-	public function perspectiveFieldOfViewRH (fieldOfViewY:Float, aspectRatio:Float, zNear:Float, zFar:Float):Void {
+	perspectiveFieldOfViewRH (fieldOfViewY, aspectRatio, zNear, zFar) {
 		
 		var yScale = 1.0 / Math.tan (fieldOfViewY / 2.0);
 		var xScale = yScale / aspectRatio;
@@ -184,7 +182,7 @@ class PerspectiveMatrix3D extends Matrix3D {
 	}
 	
 	
-	public function perspectiveOffCenterLH (left:Float, right:Float, bottom:Float, top:Float, zNear:Float, zFar:Float):Void {
+	perspectiveOffCenterLH (left, right, bottom, top, zNear, zFar) {
 		
 		this.copyRawDataFrom (Vector.ofArray ([
 			2.0 * zNear / (right - left), 0.0, 0.0, 0.0,
@@ -196,7 +194,7 @@ class PerspectiveMatrix3D extends Matrix3D {
 	}
 	
 	
-	public function perspectiveLH (width:Float, height:Float, zNear:Float, zFar:Float):Void {
+	perspectiveLH (width, height, zNear, zFar) {
 		
 		this.copyRawDataFrom (Vector.ofArray ([
 			2.0 * zNear / width, 0.0, 0.0, 0.0,
@@ -208,7 +206,7 @@ class PerspectiveMatrix3D extends Matrix3D {
 	}
 	
 	
-	public function perspectiveOffCenterRH (left:Float, right:Float, bottom:Float, top:Float, zNear:Float, zFar:Float):Void {
+	perspectiveOffCenterRH (left, right, bottom, top, zNear, zFar) {
 		
 		this.copyRawDataFrom (Vector.ofArray ([
 			2.0 * zNear / (right - left), 0.0, 0.0, 0.0,
@@ -220,7 +218,7 @@ class PerspectiveMatrix3D extends Matrix3D {
 	}
 	
 	
-	public function perspectiveRH (width:Float, height:Float, zNear:Float, zFar:Float):Void {
+	perspectiveRH (width, height, zNear, zFar) {
 		
 		this.copyRawDataFrom (Vector.ofArray ([
 			2.0 * zNear / width, 0.0, 0.0, 0.0,
@@ -232,7 +230,7 @@ class PerspectiveMatrix3D extends Matrix3D {
 	}
 	
 	
-	private function _crossProductTo (a:Vector3D, b:Vector3D):Void {
+	_crossProductTo (a, b) {
 		
 		_w.x = a.y * b.z - a.z * b.y;
 		_w.y = a.z * b.x - a.x * b.z;
@@ -244,3 +242,6 @@ class PerspectiveMatrix3D extends Matrix3D {
 	
 	
 }
+
+
+export default PerspectiveMatrix3D;

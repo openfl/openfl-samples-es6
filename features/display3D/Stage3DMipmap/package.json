@@ -1,5 +1,5 @@
 {
-  "name": "stage3dmipmap",
+  "name": "org.openfl.samples.stage3dmipmap-es6",
   "version": "1.0.0",
   "private": true,
   "devDependencies": {

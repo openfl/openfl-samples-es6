@@ -1,5 +1,5 @@
 {
-  "name": "hellotriangle",
+  "name": "org.openfl.samples.stage3dcamera-es6",
   "version": "1.0.0",
   "private": true,
   "devDependencies": {
