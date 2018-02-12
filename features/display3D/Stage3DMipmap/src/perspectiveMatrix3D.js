@@ -49,58 +49,58 @@ class PerspectiveMatrix3D extends Matrix3D {
 	
 	lookAtLH (eye, at, up) {
 		
-		_z.copyFrom (at);
-		_z.subtract (eye);
-		_z.normalize ();
-		_z.w = 0.0;
+		this._z.copyFrom (at);
+		this._z.subtract (eye);
+		this._z.normalize ();
+		this._z.w = 0.0;
 		
-		_x.copyFrom (up);
-		this._crossProductTo (_x, _z);
-		_x.normalize ();
-		_x.w = 0.0;
+		this._x.copyFrom (up);
+		this._crossProductTo (this._x, this._z);
+		this._x.normalize ();
+		this._x.w = 0.0;
 		
-		_y.copyFrom (_z);
-		this._crossProductTo (_y, _x);
-		_y.w = 0.0;
+		this._y.copyFrom (this._z);
+		this._crossProductTo (this._y, this._x);
+		this._y.w = 0.0;
 		
-		_w.x = _x.dotProduct (eye);
-		_w.y = _y.dotProduct (eye);
-		_w.z = _z.dotProduct (eye);
-		_w.w = 1.0;
+		this._w.x = this._x.dotProduct (eye);
+		this._w.y = this._y.dotProduct (eye);
+		this._w.z = this._z.dotProduct (eye);
+		this._w.w = 1.0;
 		
-		this.copyRowFrom (0, _x);
-		this.copyRowFrom (1, _y);
-		this.copyRowFrom (2, _z);
-		this.copyRowFrom (3, _w);
+		this.copyRowFrom (0, this._x);
+		this.copyRowFrom (1, this._y);
+		this.copyRowFrom (2, this._z);
+		this.copyRowFrom (3, this._w);
 		
 	}
 	
 	
 	lookAtRH (eye, at, up) {
 		
-		_z.copyFrom (eye);
-		_z.subtract (at);
-		_z.normalize ();
-		_z.w = 0.0;
+		this._z.copyFrom (eye);
+		this._z.subtract (at);
+		this._z.normalize ();
+		this._z.w = 0.0;
 		
-		_x.copyFrom (up);
-		this._crossProductTo (_x, _z);
-		_x.normalize ();
-		_x.w = 0.0;
+		this._x.copyFrom (up);
+		this._crossProductTo (this._x, this._z);
+		this._x.normalize ();
+		this._x.w = 0.0;
 		
-		_y.copyFrom (_z);
-		this._crossProductTo (_y, _x);
-		_y.w = 0.0;
+		this._y.copyFrom (this._z);
+		this._crossProductTo (this._y, this._x);
+		this._y.w = 0.0;
 		
-		_w.x = _x.dotProduct (eye);
-		_w.y = _y.dotProduct (eye);
-		_w.z = _z.dotProduct (eye);
-		_w.w = 1.0;
+		this._w.x = this._x.dotProduct (eye);
+		this._w.y = this._y.dotProduct (eye);
+		this._w.z = this._z.dotProduct (eye);
+		this._w.w = 1.0;
 		
-		this.copyRowFrom (0, _x);
-		this.copyRowFrom (1, _y);
-		this.copyRowFrom (2, _z);
-		this.copyRowFrom (3, _w);
+		this.copyRowFrom (0, this._x);
+		this.copyRowFrom (1, this._y);
+		this.copyRowFrom (2, this._z);
+		this.copyRowFrom (3, this._w);
 		
 	}
 	
@@ -232,11 +232,11 @@ class PerspectiveMatrix3D extends Matrix3D {
 	
 	_crossProductTo (a, b) {
 		
-		_w.x = a.y * b.z - a.z * b.y;
-		_w.y = a.z * b.x - a.x * b.z;
-		_w.z = a.x * b.y - a.y * b.x;
-		_w.w = 1.0;
-		a.copyFrom (_w);
+		this._w.x = a.y * b.z - a.z * b.y;
+		this._w.y = a.z * b.x - a.x * b.z;
+		this._w.z = a.x * b.y - a.y * b.x;
+		this._w.w = 1.0;
+		a.copyFrom (this._w);
 		
 	}
 	

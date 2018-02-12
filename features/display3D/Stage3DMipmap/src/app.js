@@ -179,7 +179,7 @@ class App extends Sprite {
 	}
 	
 	
-	 updateViewMatrix () {
+	updateViewMatrix () {
 		
 		this.cameraLinearVelocity.z = this.calculateUpdatedVelocity (this.cameraLinearVelocity.z, this.cameraLinearAcceleration, App.MAX_FORWARD_VELOCITY);
 		this.cameraRotationVelocity = this.calculateUpdatedVelocity (this.cameraRotationVelocity, this.cameraRotationAcceleration, App.MAX_ROTATION_VELOCITY); 
@@ -275,7 +275,7 @@ class App extends Sprite {
 	}
 	
 	
-	 stage3D_onContext3DCreate = (event) => {
+	stage3D_onContext3DCreate = (event) => {
 		
 		BitmapData.loadFromFile ("checkers.png").onComplete ((bitmapData) => {
 			
