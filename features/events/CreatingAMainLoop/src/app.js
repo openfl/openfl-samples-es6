@@ -28,7 +28,7 @@ class App extends Sprite {
 	
 	update (deltaTime) {
 		
-		if (this.sprite.x + this.sprite.width >= stage.stageWidth || this.sprite.x < 0) {
+		if (this.sprite.x + this.sprite.width >= this.stage.stageWidth || this.sprite.x < 0) {
 			
 			this.speed *= -1;
 			
