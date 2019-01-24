@@ -1,0 +1,16 @@
+{
+  "name": "org.openfl.samples.sandbox-es6",
+  "version": "1.0.0",
+  "description": "OpenFL Sandbox",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "openfl": "8.8.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.6.1"
+  }
+}
