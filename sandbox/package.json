@@ -8,7 +8,7 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
-    "openfl": "8.8.0"
+    "openfl": "latest"
   },
   "devDependencies": {
     "parcel-bundler": "^1.6.1"
