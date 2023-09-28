@@ -39,6 +39,18 @@ jobs:
           name: NyanCat
           path: demos/NyanCat/dist
           if-no-files-found: error
+      - name: Build demos/PiratePig
+        working-directory: demos/PiratePig
+        run: |
+          npm ci
+          npm run build:prod
+        env:
+          CI: true
+      - uses: actions/upload-artifact@v3
+        with:
+          name: PiratePig
+          path: demos/PiratePig/dist
+          if-no-files-found: error
       - name: Build features/display/AddingAnimation
         working-directory: features/display/AddingAnimation
         run: |
