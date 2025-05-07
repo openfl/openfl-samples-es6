@@ -1,4 +1,4 @@
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE.md) [![Build Status](https://img.shields.io/circleci/project/github/openfl/openfl-samples-es6/master.svg)](https://circleci.com/gh/openfl/openfl-samples-es6)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE.md) [![Build Status](https://img.shields.io/github/actions/workflow/status/openfl/openfl-samples-es6/main.yml?branch=master)](https://github.com/openfl/openfl-samples-es6/actions)
 
 
 OpenFL npm Samples (JavaScript ES6)
